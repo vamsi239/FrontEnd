@@ -1,0 +1,32 @@
+<div class="p-6 bg-gray-100 min-h-screen">
+
+  <h2 class="text-2xl font-bold mb-4">Products</h2>
+
+  <button (click)="add()" 
+    class="bg-green-500 text-white px-4 py-2 rounded mb-6">
+    Add Product
+  </button>
+
+  <div *ngFor="let p of products" 
+       class="bg-white shadow-md rounded p-4 mb-4 flex justify-between items-center">
+
+    <div>
+      <p class="font-semibold">{{ p.title }}</p>
+      <p class="text-sm text-gray-500">₹ {{ p.price }}</p>
+    </div>
+
+    <div class="flex gap-3">
+      <button (click)="update(p.id)" 
+        class="bg-yellow-400 px-3 py-1 rounded">
+        Edit
+      </button>
+
+      <button (click)="delete(p.id)" 
+        class="bg-red-500 text-white px-3 py-1 rounded">
+        Delete
+      </button>
+    </div>
+
+  </div>
+
+</div>

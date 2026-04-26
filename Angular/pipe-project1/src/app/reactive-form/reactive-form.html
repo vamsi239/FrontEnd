@@ -1,0 +1,111 @@
+<div class="container">
+
+  <form [formGroup]="form" (ngSubmit)="handelForm()" class="form-box">
+
+    <h2 class="title">Registration Form</h2>
+
+    <!-- Name -->
+    <section class="section">
+      <label>Name</label>
+      <input type="text" class="input" formControlName="name">
+    </section>
+
+    @if(form.get('name')?.touched && form.get('name')?.errors?.['required']){
+      <small class="error">Name is required</small>
+    }
+    @if(form.get('name')?.errors?.['minlength']){
+      <small class="error">Min 3 characters</small>
+    }
+    @if(form.get('name')?.errors?.['username']){
+    <small class="error">Username is not allowed</small>
+    }
+
+    <!-- Email -->
+    <section class="section">
+      <label>Email</label>
+      <input type="email" class="input" formControlName="email">
+    </section>
+
+    @if(form.get('email')?.touched && form.get('email')?.errors?.['required']){
+      <small class="error">Email is required</small>
+    }
+    @if(form.get('email')?.errors?.['email']){
+      <small class="error">Invalid email</small>
+    }
+
+    <!-- Password -->
+    <section class="section">
+      <label>Password</label>
+      <input type="password" class="input" formControlName="password">
+    </section>
+
+    @if(form.get('password')?.touched && form.get('password')?.errors?.['required']){
+      <small class="error">Password required</small>
+    }
+    @if(form.get('password')?.errors?.['minlength']){
+      <small class="error">Min 8 characters</small>
+    }
+
+    
+    <section class="section">
+      <p>Gender</p>
+      <div class="row">
+        <label><input type="radio" value="male" formControlName="gender"> Male</label>
+        <label><input type="radio" value="female" formControlName="gender"> Female</label>
+        <label><input type="radio" value="other" formControlName="gender"> Other</label>
+      </div>
+    </section>
+
+    @if(form.get('gender')?.untouched && form.get('gender')?.errors?.['required']){
+      <small class="error">Select gender</small>
+    }
+
+    
+    <section class="section">
+      <label>Country</label>
+      <select class="input" formControlName="country">
+        <option value="">Select</option>
+        <option>India</option>
+        <option>USA</option>
+        <option>Australia</option>
+      </select>
+    </section>
+
+    @if(form.get('country')?.touched && form.get('country')?.errors?.['required']){
+      <small class="error">Select country</small>
+    }
+
+    
+    <section class="section">
+  <p>Skills</p>
+  <div class="row">
+
+    <label>
+      <input type="checkbox" value="Java" (change)="onSkillChange($event)">
+      Java
+    </label>
+
+    <label>
+      <input type="checkbox" value="HTML" (change)="onSkillChange($event)">
+      HTML
+    </label>
+
+    <label>
+      <input type="checkbox" value="CPP" (change)="onSkillChange($event)">
+      CPP
+    </label>
+
+  </div>
+</section>
+
+   
+    <button type="submit" class="btn" [disabled]="form.invalid">
+      Submit
+    </button>
+
+    <button type="reset" class="btn-reset">
+      Reset
+    </button>
+
+  </form>
+</div>

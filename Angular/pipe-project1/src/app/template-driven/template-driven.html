@@ -1,0 +1,109 @@
+<div class="form-container">
+
+  <form class="form-card" #myForm="ngForm" (ngSubmit)="handelForm(myForm)">
+
+    <h1 class="form-title">Registration Form</h1>
+
+   
+    <section class="form-group">
+      <label for="name">Enter Name:</label>
+      <input id="name" type="text" class="input-field" ngModel name="name" #nameRef="ngModel" required>
+    </section>
+
+    @if(nameRef.touched && nameRef.errors?.['required']){
+        <small>Enter Name Properly</small>
+    }
+    
+    <section class="form-group">
+      <label for="email">Enter Email:</label>
+      <input id="email" type="email" class="input-field" ngModel name="email" #emailRef="ngModel" required>
+    </section>
+
+    @if(emailRef.touched && emailRef.errors?.['required']){
+        <small>Email is required</small>
+    }
+
+    <section class="form-group">
+        <label for="password">Enter Password:</label>
+        <input type="password" id="password" class="input-field" ngModel name="password" #passRef="ngModel" minlength="10">
+    </section>
+
+    
+    <section class="form-group">
+      <p class="label-title">Select Your Gender</p>
+      <section class="flex-row">
+        <label for="male">
+          <input id="male" type="radio" value="male" name="gender" ngModel> Male
+        </label>
+
+        <label for="female">
+          <input id="female" type="radio" value="female" name="gender" ngModel> Female
+        </label>
+
+        <label for="others">
+          <input id="others" type="radio" value="others" name="gender" ngModel> Others
+        </label>
+      </section>
+    </section>
+
+    
+    <section class="form-group">
+      <label for="country">Select your country</label>
+      <select id="country" class="input-field" ngModel name="country">
+        <!-- <option>India</option>
+        <option>Australia</option>
+        <option>England</option>
+        <option>Afghanistan</option>
+        <option>USA</option>
+        <option>South Korea</option> -->
+        @for(data of country; track data.countryCode){
+            <option [value]=""data.countryName>{{data.countryName}}</option>
+        }
+      </select>
+    </section>
+
+    
+    <section class="form-group">
+      <p class="label-title">Select your Skills</p>
+      <section class="flex-row">
+          <label for="java">
+  <input 
+    id="java" 
+    type="checkbox" 
+    name="java" 
+    value="Java" 
+    ngModel 
+    (change)="handelCheck($event.target)"
+  > Java
+</label>
+
+<label for="html">
+  <input 
+    id="html" 
+    type="checkbox" 
+    name="html" 
+    value="HTML" 
+    ngModel 
+    (change)="handelCheck($event.target)"
+  > HTML
+</label>
+
+<label for="cpp">
+  <input 
+    id="cpp" 
+    type="checkbox" 
+    name="cpp" 
+    value="CPP" 
+    ngModel 
+    (change)="handelCheck($event.target)"
+  > CPP
+</label>
+      </section>
+    </section>
+
+    
+    <button type="submit" class="submit-btn" [disabled]="myForm.invalid">Submit</button>
+    <button type="reset" class="reset">Reset</button>
+
+  </form>
+</div>

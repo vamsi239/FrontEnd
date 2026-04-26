@@ -1,0 +1,38 @@
+<p>child works!</p>
+
+<p>child works!</p>
+
+<h3>Child Component</h3>
+
+<!-- 🎧 AUDIO PLAYER -->
+<audio #audio controls>
+  <source [src]="audioSrc" type="audio/mp3">
+</audio>
+
+<br>
+
+<button (click)="previous.emit()">⏮</button>
+
+<button (click)="togglePlay(audio)">
+  {{ isPlaying ? 'Pause' : 'Play' }}
+</button>
+
+<button (click)="next.emit()">⏭</button>
+
+<hr>
+
+<button (click)="decrement()">-</button>
+<span>{{ count }}</span>
+<button (click)="increment()">+</button>
+
+<hr>
+
+<div>
+  <h4>Projected Content</h4>
+
+  <ng-content select="img"></ng-content>
+  <ng-content select="audio"></ng-content>
+  <ng-content select="video"></ng-content>
+  <ng-content select=".desc"></ng-content>
+
+</div>

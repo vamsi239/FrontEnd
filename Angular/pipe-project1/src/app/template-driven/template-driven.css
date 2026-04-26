@@ -1,0 +1,50 @@
+
+@import "tailwindcss";
+
+/* Container */
+.form-container {
+  @apply min-h-screen flex items-center justify-center bg-gray-100 p-4;
+}
+
+/* Card */
+.form-card {
+  @apply bg-white shadow-lg rounded-2xl p-8 w-full max-w-md space-y-6;
+}
+
+/* Title */
+.form-title {
+  @apply text-2xl font-bold text-center text-gray-800;
+}
+
+/* Group */
+.form-group {
+  @apply space-y-2;
+}
+
+/* Labels */
+.form-group label,
+.label-title {
+  @apply text-gray-700 font-medium;
+}
+
+/* Inputs */
+.input-field {
+  @apply w-full border border-gray-300 rounded-lg p-2 
+         focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* Flex row (radio/checkbox) */
+.flex-row {
+  @apply flex gap-4 flex-wrap;
+}
+
+/* Button */
+.submit-btn {
+  @apply w-full bg-blue-600 text-white py-2 rounded-lg 
+         hover:bg-blue-700 transition;
+}
+
+.reset {
+  @apply w-full bg-red-600 text-white py-2 rounded-lg 
+         hover:bg-red-700 transition;
+}

@@ -1,0 +1,18 @@
+
+@import 'tailwindcss';
+
+table {
+  @apply border-collapse w-3/4 mx-auto;
+}
+
+th {
+  @apply bg-gray-800 text-white p-3 border border-slate-700 text-center;
+}
+
+td {
+  @apply p-2 border border-slate-700 text-center;
+}
+
+tr:hover {
+  @apply bg-gray-100;
+}

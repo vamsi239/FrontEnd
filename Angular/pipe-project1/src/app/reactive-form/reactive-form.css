@@ -1,0 +1,45 @@
+@import "tailwindcss";
+/* Container */
+.container {
+  @apply min-h-screen flex items-center justify-center bg-gray-100;
+}
+
+/* Form box */
+.form-box {
+  @apply bg-white p-6 rounded w-80;
+}
+
+/* Title */
+.title {
+  @apply text-lg font-semibold text-center mb-4;
+}
+
+/* Section */
+.section {
+  @apply mb-3;
+}
+
+/* Input */
+.input {
+  @apply w-full border p-2 mt-1;
+}
+
+/* Row (radio/checkbox) */
+.row {
+  @apply flex gap-3 mt-1;
+}
+
+/* Button */
+.btn {
+  @apply w-full bg-blue-500 text-white p-2 mt-3
+         disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed;
+}
+
+.btn-reset {
+  @apply w-full bg-gray-400 text-white p-2 mt-2;
+}
+
+/* Error */
+.error {
+  @apply text-red-500 text-sm;
+}

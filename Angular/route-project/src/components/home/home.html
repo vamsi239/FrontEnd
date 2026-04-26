@@ -1,0 +1,30 @@
+<main class="flex min-h-screen bg-gray-100">
+
+  <aside class="w-64 bg-gray-900 text-white p-6 flex flex-col gap-4">
+    <a routerLink="profile"
+       routerLinkActive="bg-yellow-400 text-black"
+       class="px-4 py-2 rounded hover:bg-yellow-400 hover:text-black transition">
+       Profile
+    </a>
+
+    <a routerLink="page-info"
+       routerLinkActive="bg-yellow-400 text-black"
+       class="px-4 py-2 rounded hover:bg-yellow-400 hover:text-black transition">
+       Page Info
+    </a>
+
+    <a routerLink="feedback"
+       routerLinkActive="bg-yellow-400 text-black"
+       class="px-4 py-2 rounded hover:bg-yellow-400 hover:text-black transition">
+       Feedback
+    </a>
+  </aside>
+
+ 
+  <section class="flex-1 p-8">
+    <div class="bg-white shadow-md rounded-lg p-6 min-h-[300px]">
+      <router-outlet></router-outlet>
+    </div>
+  </section>
+
+</main>

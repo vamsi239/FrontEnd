@@ -1,0 +1,74 @@
+<p>login-form works!</p>
+
+<div class="form-container">
+
+  <form class="form-card" #loginForm="ngForm" (ngSubmit)="handleLogin(loginForm)">
+
+    <h1 class="form-title">Login Form</h1>
+
+    
+    <section class="form-group">
+      <label for="username">Enter Username:</label>
+      <input 
+        id="username" 
+        type="text" 
+        class="input-field" 
+        ngModel 
+        name="username" 
+        #userRef="ngModel" 
+        required>
+    </section>
+
+    @if(userRef.touched && userRef.errors?.['required']){
+      <small class="error-text">Username is required</small>
+    }
+
+    
+    <section class="form-group">
+      <label for="email">Enter Email:</label>
+      <input 
+        id="email" 
+        type="email" 
+        class="input-field" 
+        ngModel 
+        name="email" 
+        #emailRef="ngModel" 
+        required>
+    </section>
+
+    @if(emailRef.touched && emailRef.errors?.['required']){
+      <small class="error-text">Email is required</small>
+    }
+
+    
+    <section class="form-group">
+      <label for="password">Enter Password:</label>
+      <input 
+        id="password" 
+        type="password" 
+        class="input-field" 
+        ngModel 
+        name="password" 
+        #passRef="ngModel" 
+        required 
+        minlength="6">
+    </section>
+
+    @if(passRef.touched && passRef.errors?.['required']){
+      <small class="error-text">Password is required</small>
+    }
+
+    @if(passRef.touched && passRef.errors?.['minlength']){
+      <small class="error-text">Min 6 characters required</small>
+    }
+
+    <button type="submit" class="submit-btn" [disabled]="loginForm.invalid">
+      Login
+    </button>
+
+    <button type="reset" class="reset">
+      Reset
+    </button>
+
+  </form>
+</div>

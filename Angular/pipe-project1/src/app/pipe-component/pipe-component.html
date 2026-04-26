@@ -1,0 +1,26 @@
+<p>pipe-component works!</p>
+<p>pipe-component works!</p>
+
+<h1 class="text-center">UserData</h1>
+<table class="border h">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Salary</th>
+        <th>City</th>
+        <th>Dis</th>
+    </tr>
+    @for(data of UserData;track $index){
+        <tr class="border borders1">
+            <td>{{data.name | reversePipe}}</td>
+            <td>{{data.age}}</td>
+            <td>{{data.salary | currency:'INR'}}</td>
+            <td>{{data.city | slice:0:6}}</td>
+        </tr>
+    }
+    @empty{
+        <p>Collection is empty</p>
+    }
+</table>
+
+<h3>{{UserData | json}}</h3>
