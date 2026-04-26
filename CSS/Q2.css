@@ -1,0 +1,12 @@
+
+.container {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    /* transition: 0.3s; */
+}
+
+/* Hover effect */
+.container:hover {
+    opacity: 0;
+}
