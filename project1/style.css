@@ -1,0 +1,602 @@
+:root {
+    /* 7-Eleven Brand Colors */
+    --color-green: #008061;
+    --color-orange: #F26722;
+    --color-red: #E21F26;
+    
+    /* Layout Colors */
+    --color-black: #111111;
+    --color-white: #ffffff;
+    --color-light-gray: #f5f5f5;
+    --color-gray: #dddddd;
+    --color-dark-gray: #333333;
+    
+    /* Font */
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Typography Utilities */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+}
+
+/* =========================================
+   Top Alert Bar
+   ========================================= */
+.top-alert-bar {
+    background-color: var(--color-green);
+    color: var(--color-white);
+    text-align: center;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.top-alert-bar a {
+    text-decoration: underline;
+    margin-left: 0.25rem;
+}
+
+/* =========================================
+   Header & Navigation
+   ========================================= */
+.main-header {
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray);
+    position: relative; /* important for absolute dropdown */
+    z-index: 100;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 80px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.logo-placeholder {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-orange);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border-radius: 4px;
+    border-bottom: 8px solid var(--color-green);
+    border-top: 8px solid var(--color-red);
+}
+
+.main-nav {
+    flex: 1;
+    margin-left: 3rem;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-item {
+    position: static; /* Let dropdown span full width */
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-link {
+    font-weight: 800;
+    font-size: 1.125rem;
+    letter-spacing: -0.02em;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background-color: var(--color-orange);
+    transition: width 0.3s ease;
+}
+
+.nav-item:hover .nav-link::after {
+    width: 100%;
+}
+
+/* Right Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.action-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+.action-profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================
+   Mega Menu Dropdown (Pure CSS)
+   ========================================= */
+.dropdown-menu {
+    position: absolute;
+    top: 80px; /* Right below the header */
+    left: 0;
+    width: 100%;
+    background-color: var(--color-light-gray);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    border-top: 1px solid var(--color-gray);
+    padding: 3rem 0;
+}
+
+/* Show dropdown on hover */
+.nav-item.has-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 6rem;
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.dropdown-column a {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    transition: color 0.2s;
+}
+
+.dropdown-column a:hover {
+    color: var(--color-orange);
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+.main-hero-section {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    padding: 4rem 2rem;
+    min-height: 500px;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .main-hero-section { flex-direction: column; }
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    padding-right: 2rem;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: var(--color-white);
+    margin-bottom: 2rem;
+    font-weight: 500;
+}
+
+.hero-image-container {
+    flex: 1.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-sandwich-placeholder {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background-color: var(--color-dark-gray);
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 2px solid var(--color-green);
+}
+
+/* =========================================
+   Buttons
+   ========================================= */
+.btn-white {
+    display: inline-block;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    font-weight: 700;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    margin-top: 1rem;
+}
+.btn-white:hover { background-color: var(--color-gray); }
+
+.btn-black {
+    display: inline-block;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+}
+.btn-black:hover { background-color: var(--color-dark-gray); }
+
+.btn-green-pill {
+    display: inline-block;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    border-radius: 999px;
+    margin-top: 1rem;
+}
+.btn-green-pill:hover { opacity: 0.9; }
+
+/* Utilities */
+.bg-black { background-color: var(--color-black) !important; }
+.text-white { color: var(--color-white) !important; }
+
+/* =========================================
+   Top Promotions Section
+   ========================================= */
+.top-promos-section {
+    background-color: var(--color-black);
+    padding: 4rem 2rem 2rem;
+}
+
+.top-promo-grid {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .top-promo-grid { grid-template-columns: 1fr; }
+}
+
+.top-promo-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.promo-img-placeholder {
+    width: 100%;
+    aspect-ratio: 2 / 1;
+    background-color: var(--color-dark-gray);
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    border: 1px dashed #555;
+}
+
+.promo-info {
+    padding: 1.5rem 0;
+    color: var(--color-white);
+    text-align: center;
+}
+
+.promo-info p {
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+/* =========================================
+   Main Hero Banner
+   ========================================= */
+.main-hero-banner {
+    width: 100%;
+    background-color: var(--color-green);
+}
+
+.hero-banner-placeholder {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    aspect-ratio: 3 / 1;
+    background-color: #55a84b; /* Mountain Dewish Green */
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    padding: 4rem;
+    font-weight: 900;
+    font-size: 2rem;
+    position: relative;
+    border-bottom: 2px solid var(--color-black);
+}
+
+.hero-banner-content {
+    margin-top: 2rem;
+}
+
+/* =========================================
+   Inside 7-Eleven Section
+   ========================================= */
+.inside-section {
+    padding: 5rem 2rem;
+}
+
+.section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.inside-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
+.view-all-link {
+    color: var(--color-green);
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.inside-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.inside-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.square-placeholder {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-color: var(--color-dark-gray);
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    border: 1px dashed #555;
+}
+
+.inside-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+}
+
+.read-more-link {
+    color: var(--color-green);
+    font-weight: 700;
+    margin-top: auto;
+}
+
+/* =========================================
+   Split Collection Banner
+   ========================================= */
+.split-banner-section {
+    display: flex;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .split-banner-section { flex-direction: column; }
+}
+
+.split-banner-left, .split-banner-right {
+    flex: 1;
+}
+
+.split-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background-color: var(--color-dark-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    position: relative;
+}
+
+.split-content-overlay {
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.collection-logo-placeholder {
+    background-color: var(--color-white);
+    color: var(--color-green);
+    padding: 0.5rem 1rem;
+    font-weight: 900;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+}
+
+/* =========================================
+   Footer & Socials
+   ========================================= */
+.main-footer {
+    padding-top: 4rem;
+}
+
+.socialize-section {
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid #333;
+}
+
+.socialize-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 3rem;
+}
+
+.social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.social-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-white);
+}
+
+.social-item:hover {
+    color: var(--color-gray);
+}
+
+.social-icon-placeholder {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.social-item span {
+    font-weight: 700;
+}
+
+.social-divider {
+    width: 1px;
+    height: 80px;
+    background-color: #333;
+}
+
+.hiring-banner {
+    text-align: center;
+    padding: 2rem;
+    border-bottom: 1px solid #333;
+}
+
+.apply-link {
+    color: var(--color-green);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.fine-print {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #888;
+    font-size: 0.75rem;
+}
+
+.fine-print p {
+    margin-bottom: 1rem;
+}
+
+.bottom-green-bar {
+    background-color: var(--color-green);
+    padding: 1.5rem 2rem;
+}
+
+.bottom-bar-container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.store-locator-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: var(--color-white);
+    font-size: 1.25rem;
+    font-weight: 800;
+    border-bottom: 1px solid var(--color-white);
+    padding-bottom: 0.5rem;
+    width: max-content;
+}
+
+.locator-arrow-placeholder {
+    margin-left: 2rem;
+}
